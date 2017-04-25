@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Zen Pomadoro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <canvas id="zenBackground"></canvas>
+    <div class="wrapper">
+      <div class="container">
+        <h1 class="title">Zen Pomodoro</h1>
+        <div class="options">
+          <div class="break">
+            <p>Break Length</p>
+            <div class="minus"><i class="fa fa-minus"></i></div>
+            <div class="length">5</div>
+            <div class="plus"><i class="plus fa fa-plus"></i></div>
+            <p class="time-unit">minutes</p>
+          </div>
+          <div class="session">
+            <p>Session Length</p>
+            <div class="minus"><i class="fa fa-minus"></i></div>
+            <div class="length">25</div>
+            <div class="plus"><i class="fa fa-plus"></i></div>
+            <p class="timeUnit">minutes</p>
+          </div>
+        </div>
+        <div class="clock-container-before">
+          <div class="clock-container">
+            <div class="clock">
+              <p class="whichClock">Session</p>
+              <div class="sound-option">
+                <div class="sound-on"><i class="fa fa-fw fa-volume-up fa-1x"></i></div>
+                <div class="sound-off"><i class="fa fa-volume-off fa-1x"></i></div>
+              </div>
+              <p class="clock-display">25
+                <br>
+                <span>minutes</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="action">
+          <div><i class="pause fa fa-fw fa-pause fa-5x"></i></div>
+          <div><i class="start fa fa-fw fa-play fa-5x"></i></div>
+          <div><i class="reset fa fa-fw fa-undo fa-4x"></i></div>
+          <hr/>
+          <h3>Select Ambience: </h3>
+          <p class="ambientSelector ambient1"><i class="fa fa-fw fa-volume-up fa-1x"></i><span> Ambient 1</span></pager>
+          <p class="ambientSelector ambient2"><i class="fa fa-fw fa-volume-up fa-1x"></i><span> Ambient 2</span></p>
+          <p class="ambientSelector coffeeShopAmbience"><i class="fa fa-fw fa-volume-up fa-1x"></i><span> Coffee Shop Ambience</span></p>
+        </div>
+      </div>
+      <div id="footer">
+        <p>&copy; 2017 Jack Stone</p>
+      </div>
+    </div>
+
+    <!--All music is Royalty-free from freesound.com-->
+    <audio class="alarm" src="assets/cuckoo.ogg"></audio>
+    <audio class="clockTick" src="assets/clockTick.wav"></audio>
+    <audio id="ambient1" loop src="assets/zen.mp3"></audio>
+    <audio id="ambient2" loop src="assets/zen2.mp3"></audio>
+    <audio id="coffeeShopAmbience" loop src="assets/coffeeShop.mp3"></audio>
+
+    <script type="text/javascript" src="js/jquery-2.2.2.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
+  </body>
+</html>
