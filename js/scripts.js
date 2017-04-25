@@ -12,7 +12,8 @@ var clockDisplay = $(".clock-display"),
 var isRunning = false,
     isMuted = false,
     isSession = false;
-    isBreak = false;
+    isBreak = false,
+    isPlaying = '';
 
 function grammar(amount) {
   var grammar;
@@ -233,6 +234,7 @@ function buttonListeners() {
     });
     timer.toggleSound();
     isMuted = true;
+    softPause(isPlaying);
   });
 
   $(".sound-off").click(function() {
@@ -241,6 +243,7 @@ function buttonListeners() {
     });
     timer.toggleSound();
     isMuted = false;
+    resume(isPlaying);
   });
 }
 
@@ -261,23 +264,42 @@ function playMusic(track) {
     case 'ambientSelector ambient1':
       pause(ambient2);
       pause(coffeeShopAmbience);
-      ambient1.play();
+      if(isMuted === false) {
+        ambient1.play();
+      }
+      isPlaying = ambient1;
       break;
     case 'ambientSelector ambient2':
       pause(ambient1);
       pause(coffeeShopAmbience);
-      ambient2.play();
+      if(isMuted === false) {
+        ambient2.play();
+      }
+      isPlaying = ambient2;
       break;
     case 'ambientSelector coffeeShopAmbience':
       pause(ambient1);
       pause(ambient2);
-      coffeeShopAmbience.play();
+      if(isMuted === false) {
+        coffeeShopAmbience.play();
+      }
+      isPlaying = coffeeShopAmbience;
       break;
     default:
       pause(ambient2);
       pause(coffeeShopAmbience);
-      ambient1.play();
+      if(isMuted === false) {
+        ambient1.play();
+      }
   }
+}
+
+function softPause(track) {
+  track.pause();
+}
+
+function resume(track) {
+  track.play();
 }
 
 function pause(track) {
